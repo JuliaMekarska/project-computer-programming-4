@@ -1,7 +1,7 @@
 package pl.jmekarska;
 
 import org.junit.jupiter.api.Test;
-public class FirstTest {
+public class BaseTestSchema {
 
     @Test
     void testIt(){
