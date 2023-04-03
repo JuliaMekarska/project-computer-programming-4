@@ -11,7 +11,7 @@ public class Main {
         Greeter greeter = new Greeter();
         greeter.greet("Jakub"); // -> Hello Jakub
 
-        List<String> ladies = new ArrayList<String>();
+        List<String> ladies = new ArrayList<>();
         for (String name : names) {
             if (name.endsWith("a")) {
                 ladies.add(name);

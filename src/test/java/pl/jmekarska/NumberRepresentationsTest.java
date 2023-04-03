@@ -1,4 +1,4 @@
-package pl.jmekarska.creditcard;
+package pl.jmekarska;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 public class NumberRepresentationsTest {
     @Test
-    void testDoubleRepresentation() {
+     void testDoubleRepresentation() {
         double a = 0.02;
         double b = 0.03;
         double c = b - a;
