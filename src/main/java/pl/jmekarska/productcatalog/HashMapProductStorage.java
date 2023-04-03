@@ -21,11 +21,13 @@ public class HashMapProductStorage implements ProductStorage {
 
     @Override
     public void add(Product newProduct) {
+
         products.put(newProduct.getId(), newProduct);
     }
 
     @Override
     public Product loadById(String productId) {
+
         return products.get(productId);
     }
 
