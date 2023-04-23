@@ -9,12 +9,10 @@ public class ProductCatalog {
     private ProductStorage productStorage;
 
     public ProductCatalog(ProductStorage productStorage) {
-
         this.productStorage = productStorage;
     }
 
     public List<Product> allProducts() {
-
         return productStorage.allProducts();
     }
 
@@ -31,7 +29,6 @@ public class ProductCatalog {
     }
 
     public Product loadById(String productId) {
-
         return productStorage.loadById(productId);
     }
 
@@ -62,7 +59,6 @@ public class ProductCatalog {
     }
 
     public List<Product> allPublishedProducts() {
-
         return productStorage.allPublishedProducts();
     }
 }
