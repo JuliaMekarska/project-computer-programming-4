@@ -16,41 +16,32 @@ public class Product {
         this.name = name;
         this.desc = desc;
     }
-
     public String getId() {
         return uuid;
     }
-
     public UUID getUUID() {
         return UUID.fromString(uuid);
     }
-
     public String getName() {
         return name;
     }
-
     public void changePrice(BigDecimal newPrice) {
         price = newPrice;
     }
-
     public BigDecimal getPrice() {
         return price;
     }
-
     public String getImage() {
         return image;
     }
-
     public void setImage(String imageKey) {
 
         image = imageKey;
     }
-
     public void setOnline(boolean online) {
 
         this.online = online;
     }
-
     public boolean getOnline() {
         return online;
     }
