@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class ProductCatalog {
-    // Business
-    // Technical
+
     private ProductStorage productStorage;
 
     public ProductCatalog(ProductStorage productStorage) {

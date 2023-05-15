@@ -8,7 +8,6 @@ body {
 }
 
 nav {
-  float: center;
   height: 70px;
   text-align: center;
   background-image: radial-gradient(#c9e6fa 0%, #a3c0d3 50%);

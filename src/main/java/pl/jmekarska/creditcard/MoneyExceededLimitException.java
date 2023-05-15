@@ -1,4 +1,4 @@
 package pl.jmekarska.creditcard;
 
-public class MoneyExceededLimitException extends Throwable {
+public class MoneyExceededLimitException extends IllegalStateException {
 }

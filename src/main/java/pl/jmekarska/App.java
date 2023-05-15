@@ -20,12 +20,12 @@ public class App {
         ProductCatalog productCatalog = new ProductCatalog(new HashMapProductStorage());
 
         String product1 = productCatalog.addProduct("My ebook", "nice one");
-        productCatalog.assignImage(product1, "images/ebook,jpeg");
+        productCatalog.assignImage(product1, "images/ebook.jpeg");
         productCatalog.changePrice(product1, BigDecimal.valueOf(20.20));
         productCatalog.publishProduct(product1);
 
         String product2 = productCatalog.addProduct("My ebook", "even nicer one");
-        productCatalog.assignImage(product2, "images/ebook,jpeg");
+        productCatalog.assignImage(product2, "images/ebook.jpeg");
         productCatalog.changePrice(product2, BigDecimal.valueOf(30.20));
         productCatalog.publishProduct(product2);
 
