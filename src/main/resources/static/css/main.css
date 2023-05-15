@@ -1,8 +1,77 @@
 body {
-    background: #fff;
-    color: blue;
+  background-color: #cccccc;
 }
 
-.greeting {
-    color: #ff66cc;
+.nav {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+nav {
+  float: center;
+  height: 70px;
+  text-align: center;
+  background-image: radial-gradient(#c9e6fa 0%, #a3c0d3 50%);
+  box-shadow: 0 2px 30px rgb(54, 54, 54);
+}
+
+.nav a {
+  font-family: 'Roboto Slab', serif;  font-weight: 700;
+  font-size: x-large;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row1 {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 4px;
+  grid-auto-flow: column;
+}
+
+.image {
+  border-radius: 10%;
+  transition: 1s;
+}
+
+.image:hover {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.ig {
+  margin-top: 70px;
+  margin-left: 400px;
+  margin-bottom: 70px;
+  vertical-align: middle;
+}
+
+.fb {
+  margin-top: 70px;
+  margin-left: 400px;
+  margin-bottom: 70px;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  text-decoration: underline;
+  color: #a3c0d3;
+}
+
+span {
+  color: #739cb8;
+  margin-left: 20px;
+  margin-right: 50px;
+  font-family: 'Roboto Slab', serif;  font-size: 30px;
 }
