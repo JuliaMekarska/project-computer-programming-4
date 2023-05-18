@@ -25,7 +25,7 @@ public class ProductCatalogHTTPTest {
 
     @Test
     void itLoadsProducts(){
-        String url = String.format("http://localhost:%s/api/products", port);
+        var url = String.format("http://localhost:%s/api/products", port);
         ResponseEntity<String> response = http.getForEntity(url,String.class);
 
         assert response.getStatusCode().equals(HttpStatus.OK);

@@ -2,6 +2,7 @@ package pl.jmekarska.productcatalog;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ProductCatalog {
 
@@ -11,53 +12,61 @@ public class ProductCatalog {
         this.productStorage = productStorage;
     }
 
-    public List<Product> allProducts() {
+    public List<Product> allProducts(){
         return productStorage.allProducts();
     }
 
-    public String addProduct(String name, String desc) {
-        Product newOne =  new Product(
+    public ArrayList<Product> loadDatabase(){
+        ArrayList<Product> database = new ArrayList<Product>();
+        return database;
+    }
+
+    //Seller -> Add product
+    public String addProduct(String title,String author, String year, String size,String timeLength){
+        Product newProduct = new Product(
                 UUID.randomUUID(),
-                name,
-                desc
+                title,
+                author,
+                year,
+                size,
+                timeLength
         );
 
-        productStorage.add(newOne);
+        productStorage.add(newProduct);
 
-        return newOne.getId();
+        return newProduct.getId();
+    }
+
+    public void changePriceById(String id,BigDecimal price){
+        loadById(id).setPrice(price);
+    }
+
+    public void changeImageById(String id,String image){
+        loadById(id).setImage(image);
+    }
+
+    public void changeVisibilityById(String id,Boolean isPublished){
+        loadById(id).setIsPublished(isPublished);
     }
 
     public Product loadById(String productId) {
         return productStorage.loadById(productId);
     }
 
-    public void changePrice(String productId, BigDecimal newPrice) {
-        Product product = loadById(productId);
-
-        product.changePrice(newPrice);
-    }
-
-    public void assignImage(String productId, String imageKey) {
-        Product product = loadById(productId);
-
-        product.setImage(imageKey);
+    public List<Product> allPublishedProducts() {
+        return productStorage.allPublishedProducts();
     }
 
     public void publishProduct(String productId) {
-        Product product = loadById(productId);
-
-        if (product.getImage() == null) {
+        Product loaded = loadById(productId);
+        if (loaded.getPrice() == null){
             throw new ProductCantBePublishedException();
         }
 
-        if (product.getPrice() == null) {
+        if (loaded.getImage() == null){
             throw new ProductCantBePublishedException();
         }
 
-        product.setOnline(true);
-    }
-
-    public List<Product> allPublishedProducts() {
-        return productStorage.allPublishedProducts();
+        loaded.setIsOnline(true);
     }
 }

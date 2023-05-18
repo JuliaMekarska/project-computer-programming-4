@@ -1,43 +1,94 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href=".\css\main.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    <div class="container">
-        <nav>
-            <ul>
-                <li class="nav">:)</li>
-                <li class="nav">:)</li>
-                <li class="nav">:)</li>
-            </ul>
-        </nav>
-    </div>
-    <div class="row1">
-        <div class="column">
-            <img class="image" src="css/cutiecat.jpg" width="480" height="360" />
+<head>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <title>Nice T-shirt shop</title>
+</head>
+<body>
+    <main>
+        <div class="header">
+            <nav>
+                <ul class="header-ul">
+                    <li class="nav-cart">
+                        <div class="cart">
+                            <span class="total">...</span>
+                            <span class="itemsCount">...</span>
+                            <button class="button">BUY</button>
+                        </div>
+                    </li>
+                    <li class="nav"><a href="">Products</a></li>
+                    <li class="nav"><a href="">About</a></li>
+                    <li class="nav"><a href="">Account</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="column">
-            <img class="image" src="css/cutecat.jpg" width="480" height="360" />
+        <div class="logo">
+            <img class="logo-picture" src="logo.png" width="200">
+            <h1 class="shop-name">Nice T-shirt Shop</h1>
         </div>
-        <div class="column">
-            <img class="image" src="css/cutekitty.jpg" width="480" height="360" />
+        <ul id="productsList"></ul>
+        <script type="text/javascript" src="/scripts/index.js"></script>
+        <div class="row">
+            <div class="column">
+                <img class="image" src="tshirt1.png" width="360"/>
+            </div>
+            <div class="column">
+                <img class="image" src="tshirt2.png" height="360"/>
+            </div>
+            <div class="column">
+                <img class="image" src="tshirt3.png" width="360"/>
+            </div>
         </div>
-    </div>
+    </main>
     <footer>
-        <div class="icon">
-            <a href="https://www.instagram.com/"
-            ><img class="ig" src="css/ig.png" width="200" />
-                <span>Our instagram</span>
-            </a>
-            <a href="https://www.facebook.com/"
-            ><img class="fb" src="css/fb.png" width="200" />
-                <span>Our facebook</span>
-            </a>
+        <div class="footer">
+            <div class="description">
+                <ul class="footer-ul">
+                    <li class="footer-header">Our social media</li>
+                    <li>
+                        <a href="https://www.facebook.com/"
+                        ><img class="fb" src="fb.png" width="30" />
+                            <span class="media">Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"
+                        ><img class="ig" src="ig.png" width="30" />
+                            <span class="media">Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tiktok.com/en/"
+                        ><img class="tiktok" src="tiktok.png" width="30" />
+                            <span class="media">Tiktok</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="description">
+                <ul class="footer-ul">
+                    <li class="footer-header">Contact</li>
+                    <li>tshirtshop@gmail.com</li>
+                    <li>+12 345 678 910</li>
+                    <li>Cracow, Tshirt Street</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="description">
+                <ul class="footer-ul">
+                    <li class="footer-header">Help</li>
+                    <li>Support center</li>
+                    <li>Help desk</li>
+                    <li>Security policy</li>
+                </ul>
+            </div>
         </div>
     </footer>
-    </body>
+
+</body>
 </html>

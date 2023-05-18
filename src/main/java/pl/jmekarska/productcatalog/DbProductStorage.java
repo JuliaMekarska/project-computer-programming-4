@@ -1,6 +1,5 @@
 package pl.jmekarska.productcatalog;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DbProductStorage implements ProductStorage {
@@ -10,7 +9,7 @@ public class DbProductStorage implements ProductStorage {
     }
 
     @Override
-    public void add(Product newProduct) {
+    public void add(Product product) {
 
     }
 

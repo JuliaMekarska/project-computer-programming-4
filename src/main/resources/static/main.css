@@ -1,0 +1,196 @@
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    background-image: url("background.jpg");
+    height: 1350px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.7;
+}
+
+main {
+    position: relative;
+    line-height: 0.9;
+}
+
+nav {
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    height: 80px;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    background-image: radial-gradient(#D298D0 20%, #773DBC 200%);
+    box-shadow: 0 2px 30px rgb(54, 54, 54);
+}
+
+.nav {
+    font-family: 'Oswald', sans-serif;
+    margin-top: 30px;
+    display: inline-flex;
+    align-content: center;
+}
+
+.nav-cart {
+    font-family: 'Oswald', sans-serif;
+    float: left;
+}
+
+.nav a {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: x-large;
+    margin-right: 50px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffe06e;
+}
+
+.button {
+    margin-top: 15px;
+    height: 50px;
+    width: 70px;
+    border: none;
+    border-radius: 8px;
+    margin-left: 20px;
+    background-color: #addafe;
+    color: #D298D0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.total {
+    font-family: 'Oswald', sans-serif;
+    margin-left: 20px;
+    color: #ffe06e;
+    font-weight: 900;
+
+}
+
+.itemsCount {
+    font-family: 'Oswald', sans-serif;
+    margin-left: 20px;
+    color: #ffe06e;
+    font-weight: 900;
+}
+
+.logo {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.shop-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    color: #addafe;
+}
+
+.product {
+    display: inline-flex;
+    margin-left: 95px;
+    margin-right: 95px;
+    text-align-all: center;
+    font-size: 50px;
+}
+
+.product__add-to-cart {
+    font-family: 'Oswald', sans-serif;
+    background-color: #addafe;
+    color: #656565;
+    margin-left: 20px;
+    height: 50px;
+    width: 60px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 50px;
+}
+
+.row {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 50px;
+    grid-auto-flow: column;
+}
+
+.image {
+    border-radius: 10%;
+    transition: 1s;
+}
+
+.image:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.header-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-ul {
+    list-style-type: none;
+}
+
+li {
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    color: #addafe;
+    margin-left: 20px;
+}
+
+.footer-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    font-weight: 900;
+    color: #ffe06e;
+}
+
+.media {
+    color: #addafe;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #addafe;
+}
+
+.footer {
+    float: left;
+    width: 33.33%;
+}
+
+footer {
+    position: relative;
+    margin-top: 50px;
+    line-height: 1.5;
+    display: inline-flex;
+    font-family: 'Oswald', sans-serif;
+    height: 180px;
+    background-image: radial-gradient(#D298D0 20%, #773DBC 200%);
+    box-shadow: 0 2px 30px rgb(54, 54, 54);
+}
+
+
+

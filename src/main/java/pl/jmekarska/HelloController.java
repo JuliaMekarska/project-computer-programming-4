@@ -1,13 +1,12 @@
-package pl.jmekarska.web;
+package pl.jmekarska;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
-
     @GetMapping("/hello")
-    String hello() {
-        return "Hello World";
+    String hello(){
+        return "hello world";
     }
 }

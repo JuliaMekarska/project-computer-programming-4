@@ -2,6 +2,8 @@ package pl.jmekarska.sales;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.jmekarska.productcatalog.HashMapProductStorage;
+import pl.jmekarska.productcatalog.ProductCatalog;
 
 import java.util.UUID;
 
@@ -20,8 +22,7 @@ public class CollectingProductsTest {
         //Arrange
         Sales sales = thereIsSalesModule();
         String productId = thereIsProduct();
-        String customerId = thereIsCustomer("AMI");
-
+        String customerId = thereIsCustomer("julss");
         //Act
         sales.addToCart(customerId,productId);
 

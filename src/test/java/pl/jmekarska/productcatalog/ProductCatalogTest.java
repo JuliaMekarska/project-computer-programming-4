@@ -2,14 +2,12 @@ package pl.jmekarska.productcatalog;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductCatalogTest {
-
     @Test
-    void itAllowsToListMyProducts() {
+    void itExposeEmptyCollectionOfProduct() {
         //Arrange
         ProductCatalog catalog = thereIsProductCatalog();
         //Act
@@ -23,7 +21,8 @@ public class ProductCatalogTest {
         //Arrange
         ProductCatalog catalog = thereIsProductCatalog();
         //Act
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("zzz",
+                "zzz", "zzz","zzz","zzz");
 
         //Assert
         List<Product> products = catalog.allProducts();
@@ -34,75 +33,76 @@ public class ProductCatalogTest {
     void itAllowsToLoadProductDetails() {
         ProductCatalog catalog = thereIsProductCatalog();
 
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("zzz",
+                "zzz", "zzz","zzz","zzz");
 
         Product loadedProduct = catalog.loadById(productId);
         assert loadedProduct.getId().equals(productId);
-        assert loadedProduct.getName().equals("lego set 8083");
     }
 
     @Test
     void itAllowsToChangePrice() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
 
-        catalog.changePrice(productId, BigDecimal.valueOf(20.20));
+        String id = catalog.addProduct("zzz",
+                "zzz", "zzz","zzz", "zzz");
 
-        Product loadedProduct = catalog.loadById(productId);
-        assertEquals(BigDecimal.valueOf(20.20), loadedProduct.getPrice());
+        catalog.changePriceById(id, BigDecimal.valueOf(49.99));
+
+        assert catalog.loadById(id).getPrice().equals(BigDecimal.valueOf(49.99));
     }
 
     @Test
     void itAllowsToAssignImage() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
 
-        catalog.assignImage(productId, "foo/boo/nice_image.jpeg");
+        String id = catalog.addProduct("zzz",
+                "zzz", "zzz","zzz", "zzz");
 
-        Product loadedProduct = catalog.loadById(productId);
-        assertEquals("foo/boo/nice_image.jpeg", loadedProduct.getImage());
+        catalog.changeImageById(id,"obrazek.jpg");
+
+        assertEquals("obrazek.jpg",catalog.loadById(id).getImage());
     }
 
     @Test
+    void itDenyPublicationWithoutImageAndPrice(){
+        ProductCatalog catalog = thereIsProductCatalog();
+        String productId = catalog.addProduct("zzz","zzz","zzz","zzz","zzz");
+
+        assertThrows(ProductCantBePublishedException.class,
+                () -> catalog.publishProduct(productId));
+    }
+    @Test
     void itAllowsToPublishProduct() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
-        catalog.changePrice(productId, BigDecimal.valueOf(10));
-        catalog.assignImage(productId, "nice.jpeg");
+
+        String productId = catalog.addProduct("zzz",
+                "zzz", "zzz","zzz","zzz");
+
+        catalog.changePriceById(productId,BigDecimal.valueOf(17.99));
+        catalog.changeImageById(productId, "obrazek.jpg");
 
         catalog.publishProduct(productId);
 
         List<Product> publishedProducts = catalog.allPublishedProducts();
         assertDoesNotThrow(() -> catalog.publishProduct(productId));
-        assertEquals(1, publishedProducts.size());
-    }
-
-    @Test
-    void draftProductsAreNotListedForBeingSold() {
-        ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
-
-        List<Product> publishedProducts = catalog.allPublishedProducts();
-        assertEquals(0, publishedProducts.size());
+        assertEquals(1,publishedProducts.size());
     }
 
     @Test
     void publicationIsPossibleWhenPriceAndImageAreDefined() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
 
-        assertThrows(
-                ProductCantBePublishedException.class,
-                () -> catalog.publishProduct(productId)
-        );
+        String id = catalog.addProduct("zzz",
+                "zzz", "zzz","zzz","zzz");
 
-
+        assertThrows(ProductCantBePublishedException.class,() -> catalog.changeVisibilityById(id,true));
     }
 
     private ProductCatalog thereIsProductCatalog() {
         return new ProductCatalog(
-                new DbProductStorage()
-        );
+                new HashMapProductStorage());
+
     }
 
     private void assertListIsEmpty(List<Product> products) {

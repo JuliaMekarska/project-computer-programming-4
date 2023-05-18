@@ -13,27 +13,27 @@ public class HashMapProductStorage implements ProductStorage {
     }
 
     @Override
-    public List<Product> allProducts() {
+    public List<Product> allProducts(){
         return products.values()
                 .stream()
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void add(Product newProduct) {
-        products.put(newProduct.getId(), newProduct);
+    public void add(Product product){
+        products.put(product.getId(), product);
     }
 
     @Override
-    public Product loadById(String productId) {
+    public Product loadById(String productId){
         return products.get(productId);
     }
 
     @Override
-    public List<Product> allPublishedProducts() {
+    public List<Product> allPublishedProducts(){
         return products.values()
                 .stream()
-                .filter(Product::getOnline)
+                .filter(Product::getIsOnline)
                 .collect(Collectors.toList());
     }
 }
