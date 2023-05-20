@@ -23,16 +23,18 @@ const createHtmlElementFromString = (template) => {
 
 const createProductComponent = (product) =>{
     const template = `
-    <li class="product">
-        <span class="name">${product.name}</span>
-        <div class="price">
-            <span>${product.price}</span>
-        </div>
-        <button 
-            class="product__add-to-cart"
-            data-product-id="${product.id}"
-        >Add to cart</button>
-    </li>
+    <div class="cos">      
+        <li class="product">
+            <span class="name">${product.name}</span>
+            <div class="price">
+                <span>${product.price}</span>
+            </div>
+            <button 
+                class="product__add-to-cart"
+                data-product-id="${product.id}"
+            >Add to cart</button>
+        </li>
+    </div>          
     `;
 
     return createHtmlElementFromString(template);
