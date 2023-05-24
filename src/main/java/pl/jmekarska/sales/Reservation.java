@@ -11,12 +11,10 @@ public class Reservation {
     BigDecimal total;
     String paymentId;
 
-    Reservation() {}
 
-    public Reservation(String id, BigDecimal total, String paymentId) {
+    public Reservation() {
         this.id = id;
         this.total = total;
         this.paymentId = paymentId;
     }
-
 }
