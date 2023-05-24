@@ -25,7 +25,7 @@ const createProductComponent = (product) =>{
     const template = `
     <div class="cos">      
         <li class="product">
-            <span class="name">${product.name}</span>
+            <div class="name">${product.name}</div>
             <div class="price">
                 <span>${product.price}</span>
             </div>
