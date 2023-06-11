@@ -1,4 +1,4 @@
-package pl.jmekarska;
+package pl.jmekarska.playground;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,34 +16,37 @@ public class JdbcPlaygroundTest {
     @BeforeEach
     void setup() {
         jdbcTemplate.execute("DROP TABLE products IF EXISTS");
-        jdbcTemplate.execute("CREATE TABLE 'products' (" +
-                "'id' varchar(100) NOT NULL, " +
-                "'name' varchar(100)," +
+        jdbcTemplate.execute("CREATE TABLE `products` (" +
+                "`id` varchar(100) NOT NULL," +
+                "`name` varchar(100)," +
                 "PRIMARY KEY(id)" +
                 ")");
     }
 
     @Test
-    void insert(){
+    void insert() {
         String productId = "my_product_1";
-        String productName = "T-shier fajny";
+        String productName = "Lego set";
 
-        jdbcTemplate.update("INSERT INTO `products` (id, name) values (?, ?)",
+        jdbcTemplate.update(
+                "INSERT INTO `products` (id, name) values (?,?)",
                 productId,
                 productName);
 
-        int productCount = jdbcTemplate.queryForObject(
-                "select count(*) from `products`", Integer.class);
+        int productsCount = jdbcTemplate.queryForObject(
+                "select count(*) from `products`",
+                Integer.class);
 
-        assert productCount == 1;
+        assert productsCount == 1;
     }
 
     @Test
     void select() {
         String productId = "my_product_1";
-        String productName = "T-shier fajny";
+        String productName = "Lego set";
 
-        jdbcTemplate.update("INSERT INTO `products` (id, name) values (?, ?)",
+        jdbcTemplate.update(
+                "INSERT INTO `products` (id, name) values (?,?)",
                 productId,
                 productName);
 
@@ -55,12 +58,17 @@ public class JdbcPlaygroundTest {
                     HashMap<String, Object> myResult = new HashMap<>();
                     myResult.put("product_id", r.getString("id"));
                     myResult.put("product_name", r.getString("name"));
-                    return myResult;
+                    return  myResult;
                 });
     }
 
+
     @Test
     void helloWorldViaDB() {
-        String result = jdbcTemplate.queryForObject("select 'Hello world'", String.class);
+        String result = jdbcTemplate.queryForObject(
+                "select 'Hello world'",
+                String.class);
     }
+
+
 }

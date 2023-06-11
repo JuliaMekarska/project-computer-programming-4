@@ -1,9 +1,9 @@
 server:
-  port: 8181
+  port: 9999
 
 spring:
   datasource:
-    url: jdbc:h2:mem:testDb
+    url: jdbc:h2:mem:testdb
     username: sa
     password: ~
 

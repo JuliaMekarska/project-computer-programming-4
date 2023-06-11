@@ -1,8 +1,6 @@
 package pl.jmekarska.productcatalog;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 public class Product {
@@ -33,10 +31,6 @@ public class Product {
         return uuid;
     }
 
-    //public UUID getUUID(){
-    //  return UUID.fromString(uuid);
-    //}
-
     public void setPrice(BigDecimal price){
         this.price=price;
     }
@@ -44,10 +38,24 @@ public class Product {
     public void setImage(String image){
         this.image=image;
     }
-    public BigDecimal getPrice(){return this.price;}
-    public String getImage(){return this.image;}
-    public void setIsOnline(boolean online){this.isOnline=online;}
-    public boolean getIsOnline(){return this.isOnline;}
+    public BigDecimal getPrice(){
+        return this.price;
+    }
+    public void changePrice(BigDecimal newPrice) {
+
+        price = newPrice;
+    }
+
+    public String getImage(){
+        return this.image;
+    }
+
+    public void setIsOnline(boolean online){
+        this.isOnline=online;
+    }
+    public boolean getIsOnline(){
+        return this.isOnline;
+    }
 
     public void setIsPublished(Boolean isPublished){
         if (this.image == null || this.price == null){
@@ -63,20 +71,4 @@ public class Product {
     public String getDescription() {
         return description;
     }
-
-    Map<String,Object> getProductInfo() {
-        Map<String, Object> productInfo = new HashMap<>();
-        productInfo.put("uuid", this.uuid);
-        productInfo.put("name", this.name);
-        productInfo.put("desc", this.description);
-        productInfo.put("image", this.image);
-        productInfo.put("isOnline", this.isOnline);
-        productInfo.put("price", this.price);
-        productInfo.put("color", this.color);
-        productInfo.put("type", this.type);
-        productInfo.put("size", this.size);
-
-        return productInfo;
-    }
-
 }

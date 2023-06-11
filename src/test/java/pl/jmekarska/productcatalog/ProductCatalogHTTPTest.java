@@ -16,17 +16,19 @@ public class ProductCatalogHTTPTest {
     TestRestTemplate http;
 
     @Test
-    void itLoadsIndex(){
-        String url= String.format("http://localhost:%s", port);
+    void itLoadsIndex() {
+        String url = String.format("http://localhost:%s", port);
+
         ResponseEntity<String> response = http.getForEntity(url, String.class);
 
         assert response.getStatusCode().equals(HttpStatus.OK);
     }
 
     @Test
-    void itLoadsProducts(){
-        var url = String.format("http://localhost:%s/api/products", port);
-        ResponseEntity<String> response = http.getForEntity(url,String.class);
+    void itLoadsProducts() {
+        String url = String.format("http://localhost:%s/api/products", port);
+
+        ResponseEntity<String> response = http.getForEntity(url, String.class);
 
         assert response.getStatusCode().equals(HttpStatus.OK);
     }

@@ -1,4 +1,4 @@
-package pl.jmekarska;
+package pl.jmekarska.playground;
 
 import org.junit.jupiter.api.Test;
 

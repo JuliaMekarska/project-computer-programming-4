@@ -1,19 +1,21 @@
 package pl.jmekarska;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.jmekarska.productcatalog.HashMapProductStorage;
 import pl.jmekarska.productcatalog.ProductCatalog;
-import pl.jmekarska.sales.CartStorage;
-import pl.jmekarska.sales.ProductDetailsProvider;
 import pl.jmekarska.sales.Sales;
+import pl.jmekarska.sales.cart.CartStorage;
+import pl.jmekarska.sales.offering.OfferCalculator;
+import pl.jmekarska.sales.productdetails.InMemoryProductDetailsProvider;
 
 import java.math.BigDecimal;
 
 @SpringBootApplication
 public class App {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
 
@@ -42,6 +44,7 @@ public class App {
 
     @Bean
     Sales createSales() {
-        return new Sales(new CartStorage(), new ProductDetailsProvider());
+        InMemoryProductDetailsProvider productDetails = new InMemoryProductDetailsProvider();
+        return new Sales(new CartStorage(), productDetails, new OfferCalculator(productDetails));
     }
 }
