@@ -1,19 +1,23 @@
 package pl.jmekarska.sales;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
 import pl.jmekarska.sales.offering.Offer;
+import pl.jmekarska.sales.reservation.OfferAcceptanceRequest;
+import pl.jmekarska.sales.reservation.ReservationDetails;
+import pl.jmekarska.web.CurrentCustomerContext;
+import pl.jmekarska.web.SessionCurrentCustomerContext;
 
 @RestController
 public class SalesController {
 
     private Sales sales;
+    private CurrentCustomerContext currentCustomerContext;
 
-    public SalesController(Sales sales) {
+
+    public SalesController(Sales sales, CurrentCustomerContext currentCustomerContext) {
         this.sales = sales;
+        this.currentCustomerContext = currentCustomerContext;
     }
 
     @GetMapping("/api/current-offer")
@@ -28,10 +32,16 @@ public class SalesController {
 
 
     @PostMapping("/api/accept-offer")
-    public void acceptOffer() {
-        sales.acceptOffer();
+    public ReservationDetails acceptOffer(@RequestBody OfferAcceptanceRequest request) {
+        return sales.acceptOffer(getCurrentCustomerId(), request);
     }
+
+    @GetMapping("/api/current-customer")
+    public String getCurrentCustomerId() {
+        return currentCustomerContext.getCurrentCustomerId();
+    }
+
     private String getCurrentCustomer() {
-        return "Julss";
+        return currentCustomerContext.getCurrentCustomerId();
     }
 }

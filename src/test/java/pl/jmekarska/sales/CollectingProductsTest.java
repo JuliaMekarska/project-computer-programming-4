@@ -5,10 +5,13 @@ import org.junit.jupiter.api.Test;
 import pl.jmekarska.sales.cart.Cart;
 import pl.jmekarska.sales.cart.CartStorage;
 import pl.jmekarska.sales.offering.Offer;
+import pl.jmekarska.sales.payment.SpyPaymentGateway;
 import pl.jmekarska.sales.offering.OfferCalculator;
 import pl.jmekarska.sales.offering.OfferLine;
 import pl.jmekarska.sales.productdetails.InMemoryProductDetailsProvider;
 import pl.jmekarska.sales.productdetails.ProductDetails;
+import pl.jmekarska.sales.reservation.InMemoryReservationStorage;
+
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -106,7 +109,13 @@ public class CollectingProductsTest {
     }
 
     private Sales thereIsSalesModule() {
-        return new Sales(cartStorage, productDetails, new OfferCalculator(productDetails));
+        return new Sales(
+                cartStorage,
+                productDetails,
+                new OfferCalculator(productDetails),
+                new SpyPaymentGateway(),
+                new InMemoryReservationStorage()
+        );
     }
 
 }

@@ -22,7 +22,7 @@ const refreshCurrentOffer = () => {
     getCurrentOffer()
         .then(offer => {
             offerElement.querySelector('.total').textContent = `${offer.total} PLN`;
-            offerElement.querySelector('.itemsCount').textContent = `${offer.itemsCount} items`;
+            offerElement.querySelector('.itemsCount').textContent = `${offer.productsCount} items`;
         });
 }
 
@@ -33,20 +33,20 @@ const createHtmlElementFromString = (template) => {
     return tmpElement.firstChild;
 }
 
-const createProductComponent = (product) =>{
+const createProductComponent = (product) => {
     const template = `
-    <div class="cos">      
         <li class="product">
-            <div class="name">${product.name}</div>
-            <div class="price">
-                <span>${product.price}</span>
+            <span class="name">${product.name}</span>
+            <div class="product__image-container">
+                <img class="image" src="${product.image}" width="360"/>
             </div>
-            <button 
-                class="product__add-to-cart"
+            <span class="price">${product.price}</span>
+            <button class="product__add-to-cart"
                 data-product-id="${product.id}"
-            >Add to cart</button>
+            >
+                Add to cart
+            </button>
         </li>
-    </div>          
     `;
 
     return createHtmlElementFromString(template);
